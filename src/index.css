@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 99%;
+    --foreground: 24 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+
+    --primary: 32 30% 40%;
+    --primary-foreground: 30 33% 99%;
+
+    --secondary: 32 50% 80%;
+    --secondary-foreground: 24 10% 10%;
+
+    --muted: 32 30% 94%;
+    --muted-foreground: 24 5% 45%;
+
+    --accent: 12 60% 80%;
+    --accent-foreground: 24 10% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 10% 90%;
+    --input: 20 10% 90%;
+    --ring: 32 30% 40%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 30 33% 99%;
+    --sidebar-foreground: 24 10% 10%;
+    --sidebar-primary: 32 30% 40%;
+    --sidebar-primary-foreground: 30 33% 99%;
+    --sidebar-accent: 12 60% 80%;
+    --sidebar-accent-foreground: 24 10% 10%;
+    --sidebar-border: 20 10% 90%;
+    --sidebar-ring: 32 30% 40%;
+  }
+
+  .dark {
+    --background: 20 14% 4%;
+    --foreground: 20 6% 90%;
+
+    --card: 20 14% 4%;
+    --card-foreground: 20 6% 90%;
+
+    --popover: 20 14% 4%;
+    --popover-foreground: 20 6% 90%;
+
+    --primary: 32 30% 40%;
+    --primary-foreground: 20 6% 90%;
+
+    --secondary: 32 15% 11%;
+    --secondary-foreground: 20 6% 90%;
+
+    --muted: 32 15% 15%;
+    --muted-foreground: 20 6% 70%;
+
+    --accent: 12 60% 25%;
+    --accent-foreground: 20 6% 90%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 20 6% 90%;
+
+    --border: 32 15% 20%;
+    --input: 32 15% 20%;
+    --ring: 32 30% 40%;
+
+    --sidebar-background: 20 14% 4%;
+    --sidebar-foreground: 20 6% 90%;
+    --sidebar-primary: 32 30% 40%;
+    --sidebar-primary-foreground: 20 6% 90%;
+    --sidebar-accent: 12 60% 25%;
+    --sidebar-accent-foreground: 20 6% 90%;
+    --sidebar-border: 32 15% 20%;
+    --sidebar-ring: 32 30% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-light tracking-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-light tracking-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-light;
+  }
+
+  .elegant-hover {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .elegant-button {
+    @apply px-6 py-3 border border-primary text-sm uppercase tracking-wider font-medium elegant-hover;
+  }
+
+  .elegant-button-filled {
+    @apply elegant-button bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .elegant-button-outline {
+    @apply elegant-button bg-transparent hover:bg-primary/10;
+  }
+}

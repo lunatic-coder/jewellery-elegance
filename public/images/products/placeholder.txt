@@ -1,0 +1,2 @@
+Product images would be stored here in production.
+For development, we use placeholder references.
