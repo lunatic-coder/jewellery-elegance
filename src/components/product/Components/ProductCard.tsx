@@ -29,17 +29,9 @@ export default function ProductCard({
           "relative overflow-hidden mb-4",
           isFeatured ? "aspect-[3/4]" : "aspect-square",
         )}>
-          {product.images && product.images.length > 0 ? (
-            <img
-              src={product.images[0]}
-              alt={product.name}
-              className={cn(
-                "object-cover w-full h-[400px] shadow-xl rounded-md transition-all duration-700 shadow-md",
-                "group-hover:scale-105 group-hover:shadow-xl"
-              )}
-            />
-          ) : (
+
             <PlaceholderImage
+            src={product.images[0]}
               width={isFeatured ? 600 : 400}
               height={isFeatured ? 800 : 400}
               text={product.name}
@@ -47,7 +39,7 @@ export default function ProductCard({
               pattern="gradient"
               imageIndex={productIdNumber % 5}
             />
-          )}
+
 
           {product.new && (
             <div className="absolute top-2 right-2 bg-accent text-accent-foreground text-xs uppercase tracking-wider py-1 px-2 rounded">

@@ -10,7 +10,8 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <PlaceholderImage
           text=""
-          className="w-full h-full"
+          className="w-full h-full mt-20"
+          src={"https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg"}
           pattern="gradient"
           imageIndex={0}
           rounded={false}
@@ -28,15 +29,15 @@ export default function Hero() {
           text="Elegant Necklace"
           className="w-full aspect-square rounded-full shadow-2xl border-4 border-white/40"
           pattern="gradient"
-          imageIndex={1}
+          imageIndex={2}
         />
       </div>
-      <div className="absolute right-[15%] bottom-[15%] w-[200px] hidden lg:block">
+      <div className="absolute  right-[15%] bottom-[15%] w-[200px] hidden lg:block">
         <PlaceholderImage
           text="Pearl Earrings"
-          className="w-full aspect-square rounded-full shadow-xl border-4 border-white/40"
+          className="w-full aspect-square rounded-full shadow-2xl border-4 border-white/40"
           pattern="gradient"
-          imageIndex={2}
+          imageIndex={1}
         />
       </div>
 

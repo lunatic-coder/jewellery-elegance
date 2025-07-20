@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import ProductGrid from "@/components/product/ProductGrid";
+import ProductGrid from "@/components/product/Components/ProductGrid";
 import { newArrivals } from "@/lib/data";
 
 export default function NewArrivals() {
@@ -13,9 +13,9 @@ export default function NewArrivals() {
             Be the first to explore our latest additions, fresh from the design studio.
           </p>
         </div>
-        
+
         <ProductGrid products={newArrivals} columns={4} className="mb-12" />
-        
+
         <div className="text-center">
           <Button asChild className="elegant-button-outline">
             <Link to="/collections/new-arrivals">View All New Arrivals</Link>

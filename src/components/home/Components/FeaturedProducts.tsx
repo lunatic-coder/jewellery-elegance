@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import ProductCard from "@/components/product/ProductCard";
+import ProductCard from "@/components/product/Components/ProductCard";
 import { featuredProducts } from "@/lib/data";
 
 export default function FeaturedProducts() {

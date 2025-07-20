@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import { CollectionImages } from "./CollectionImages";
 
-// Mock collections data
+// Mock Data
 const collections = [
   {
     id: "new-arrivals",
@@ -45,12 +44,10 @@ const collections = [
   },
 ];
 
-export default function CollectionsPage() {
-  return (
-    <div className="min-h-screen">
-      <Header />
+function Collections(){
 
-      <main className="pt-24 md:pt-32 pb-16 md:pb-24">
+    return(
+         <main className="pt-24 md:pt-32 pb-16 md:pb-24">
         {/* Hero Section */}
         <div className="bg-secondary py-16 md:py-24 mb-16">
           <div className="container-custom">
@@ -81,7 +78,7 @@ export default function CollectionsPage() {
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (
-                    <PlaceholderImage
+                    <CollectionImages
                       text={collection.name}
                       className="w-full h-full"
                       bgColor="bg-primary/10"
@@ -108,8 +105,8 @@ export default function CollectionsPage() {
           </div>
         </div>
       </main>
+    )
 
-      <Footer />
-    </div>
-  );
 }
+
+export default Collections

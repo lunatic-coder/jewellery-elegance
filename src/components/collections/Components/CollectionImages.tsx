@@ -1,8 +1,6 @@
-
 import { cn } from "@/lib/utils";
 
 interface PlaceholderImageProps {
-  src?: string; // ✅ New: Optional image source
   category?: string;
   width?: number;
   height?: number;
@@ -13,12 +11,9 @@ interface PlaceholderImageProps {
   rounded?: boolean;
   pattern?: 'gradient' | 'dots' | 'lines' | 'solid';
   imageIndex?: number;
-  objectFit?: "cover" | "contain" | "fill";
-  alt?: string;
 }
 
-export function PlaceholderImage({
-  src,
+export function CollectionImages({
   category,
   width = 600,
   height = 400,
@@ -29,13 +24,12 @@ export function PlaceholderImage({
   rounded = true,
   pattern = 'gradient',
   imageIndex,
-  objectFit = "cover",
-  alt = "Image",
 }: PlaceholderImageProps) {
   const displayText = text || category || "Elegance";
 
+  // Generate semi-realistic placeholder based on pattern type
   const getBgStyle = () => {
-    const index = imageIndex || Math.floor(Math.random() * 5);
+    const index = imageIndex || Math.floor(Math.random() * 5) + 1;
 
     const gradients = [
       'bg-gradient-to-br from-amber-100 to-amber-300',
@@ -45,7 +39,7 @@ export function PlaceholderImage({
       'bg-gradient-to-br from-amber-50 to-amber-200',
     ];
 
-    switch (pattern) {
+    switch(pattern) {
       case 'gradient':
         return gradients[index % gradients.length];
       case 'dots':
@@ -61,36 +55,26 @@ export function PlaceholderImage({
   return (
     <div
       className={cn(
-        "flex items-center justify-center relative overflow-hidden",
+        "flex items-center justify-center overflow-hidden relative",
+        pattern === 'solid' ? bgColor : getBgStyle(),
         rounded && "rounded-md",
-        className,
-        !src && (pattern === 'solid' ? bgColor : getBgStyle())
+        className
       )}
       style={{ width, height }}
     >
-      {src ? (
-        <img
-          src={src}
-          alt={alt}
-          className={cn("w-full h-full object-cover", rounded && "rounded-md")}
-          style={{ objectFit }}
-        />
-      ) : (
-        <>
-          <span className={cn("text-lg font-medium z-10", textColor)}>
-            {displayText}
-          </span>
-          {/* Decoration */}
-          <div className="absolute inset-0 z-0 opacity-30">
-            {pattern === 'gradient' && (
-              <>
-                <div className="absolute w-20 h-20 rounded-full bg-white/30 top-5 left-5" />
-                <div className="absolute w-16 h-16 rounded-full bg-white/20 bottom-8 right-8" />
-              </>
-            )}
-          </div>
-        </>
-      )}
+      <span className={cn("text-lg font-medium z-10", textColor)}>
+        {displayText}
+      </span>
+
+      {/* Add decoration elements */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        {pattern === 'gradient' && (
+          <>
+            <div className="absolute w-20 h-20 rounded-full bg-white/30 top-5 left-5"></div>
+            <div className="absolute w-16 h-16 rounded-full bg-white/20 bottom-8 right-8"></div>
+          </>
+        )}
+      </div>
     </div>
   );
 }

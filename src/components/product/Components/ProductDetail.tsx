@@ -1,19 +1,19 @@
+
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ChevronRight, Minus, Plus, Heart, ShoppingBag, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { getProductById, getProductsByCategory } from "@/lib/data";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import ProductGrid from "@/components/product/ProductGrid";
-import { ProductImageZoom } from "@/components/product/ProductImageZoom";
+import ProductGrid from "@/components/product/Components/ProductGrid";
+import { ProductImageZoom } from "@/components/product/Components/ProductImageZoom";
 
+function ProductDetail(){
 
-export default function ProductDetailPage() {
-  const { productId } = useParams();
+    const { productId } = useParams();
   const product = productId ? getProductById(productId) : null;
 
 
@@ -38,7 +38,8 @@ export default function ProductDetailPage() {
     );
   }
 
-  // Get similar products
+
+    // Get similar products
   const similarProducts = getProductsByCategory(product.category)
     .filter(p => p.id !== product.id)
     .slice(0, 4);
@@ -64,11 +65,8 @@ export default function ProductDetailPage() {
     setTimeout(() => setAddedToCart(false), 2000);
   };
 
-  return (
-    <div className="min-h-screen">
-      <Header />
-
-      <main className="pt-24 md:pt-32 pb-16 md:pb-24">
+    return(
+          <main className="pt-24 md:pt-32 pb-16 md:pb-24">
         <div className="container-custom">
           {/* Breadcrumb */}
           <nav className="flex items-center text-sm text-muted-foreground mb-8">
@@ -210,8 +208,8 @@ export default function ProductDetailPage() {
           )}
         </div>
       </main>
+    )
 
-      <Footer />
-    </div>
-  );
 }
+
+export default ProductDetail

@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import SearchDrawer from "../home/Components/SearchDrawer";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -23,6 +24,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [cartItemCount, setCartItemCount] = useState(0);
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState<boolean>()
 
   // Handle scroll effect for header
   useEffect(() => {
@@ -41,7 +43,8 @@ export default function Header() {
   }, []);
 
   return (
-    <header
+     <>
+      <header
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out",
         isScrolled
@@ -108,7 +111,7 @@ export default function Header() {
 
         {/* Right Side Icons */}
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon">
+          <Button onClick={()=>setIsOpen(true)} variant="ghost" size="icon">
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
           </Button>
@@ -128,5 +131,8 @@ export default function Header() {
         </div>
       </div>
     </header>
+    <SearchDrawer isOpen={isOpen} setIsOpen={setIsOpen} />
+     </>
+
   );
 }

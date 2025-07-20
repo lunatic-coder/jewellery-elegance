@@ -6,12 +6,15 @@ import { lazy, Suspense } from 'react';
 
 // Pages
 import Index from './pages/Index';
-import NotFound from './pages/NotFound';
+import NotFound from './pages/NotFoundPage';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Collections from './pages/Collections';
+import Collections from './pages/CollectionsPage';
 import Shop from './pages/Shop';
-import ProductDetail from './pages/ProductDetail';
+
+import ProductDetailPage from './pages/ProductDetailPage';
+import NotFoundPage from './pages/NotFoundPage';
+import CollectionsPage from './pages/CollectionsPage';
 
 const queryClient = new QueryClient();
 
@@ -25,12 +28,12 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/collections" element={<Collections />} />
+            <Route path="/collections" element={<CollectionsPage />} />
             <Route path="/collections/:collectionId" element={<Collections />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/shop/:categoryId" element={<Shop />} />
-            <Route path="/product/:productId" element={<ProductDetail />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/product/:productId" element={<ProductDetailPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
